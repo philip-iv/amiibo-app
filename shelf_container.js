@@ -2,7 +2,7 @@
 
 const e = React.createElement;
 
-var characters = ['Bayonetta', 'Bowser Jr', 'Bowser', 'Captain Falcon', 'Charizard', 'Chrom', 'Cloud', 'Corrin - Male', 'CR-chibirobo', 'Daisy', 'Dark Pit', 'Dark Samus', 'Diddy Kong', 'Donkey Kong', 'Dr', 'Duck Hunt', 'Falco', 'FE-chrom', 'FE-tiki', 'Fox', 'Game _ Watch', 'Ganondorf', 'Greninja', 'Ice Climbers', 'Ike', 'Inkling', 'Ivysaur', 'Jigglypuff', 'King Dedede', 'King K', 'kirby-WaddleDee', 'Kirby', 'Link-SSBU', 'Link', 'Little Mac', 'Lucario', 'Lucas', 'Lucina', 'Luigi', 'Mario', 'Marth', 'Mega Man', 'Meta Knight', 'Mewtwo', 'Mii Brawler', 'Mii Gunner', 'Mii Swordfighter', 'MSR-metroid', 'MSR-samus', 'Ness', 'Olimar', 'Pac-Man', 'Palutena', 'Peach', 'Pichu', 'PIK-pikmin', 'Pikachu', 'Pit', 'Pokemon Trainer', 'R', 'Richter', 'Ridley', 'Robin - Male', 'ROBOT - NES', 'Rosalina _ Luma', 'Rosalina-', 'Roy', 'Ryu', 'Samus', 'Sheik', 'Shulk', 'Simon', 'SM-boo', 'SM-daisy', 'SM-goomba', 'SM-koopa', 'SM-mario-Gold', 'SM-mario-Silver', 'SM-toad', 'SM-waluigi', 'Snake(1)', 'Snake', 'Sonic', 'splat-boy-2', 'splat-boy-violet', 'splat-boy', 'splat-girl-2', 'splat-girl-green', 'splat-girl', 'splat-green-ENG', 'splat-pink-ENG', 'splat-squid-2', 'splat-squid-oran', 'splat-squid', 'Squirtle', 'Toon Link', 'Villager', 'Wario', 'Wii Fit Trainer', 'Wolf',  'Yoshi', 'Young Link', 'YWW-blu', 'YWW-green', 'YWW-pink', 'YWW-poochy', 'Z-botw-daruk', 'Z-botw-mipha', 'Z-botw-revali', 'Z-botw-urbosa', 'Zelda-SSBU', 'Zelda', 'Zero Suit Samus']
+var characters = ['Alm', 'Bayonetta', 'Boo', 'Bowser Jr', 'Bowser', 'Captain Falcon', 'Celica', 'Charizard', 'Chibi Robo', 'Chrom', 'Cloud', 'Corrin (Female)', 'Corrin (Male)', 'Daisy (Super Mario)', 'Daisy', 'Dark Pit', 'Dark Samus', 'Diddy Kong', 'Donkey Kong', 'Dr Mario', 'Duck Hunt', 'Falco', 'Fox', 'Game and Watch', 'Ganondorf', 'Goomba', 'Greninja', 'Ice Climbers', 'Ike', 'Inkling', 'Ivysaur', 'Jigglypuff', 'King Dedede', 'King K Rool', 'kirby-WaddleDee', 'Kirby', 'Link (Adult)', 'Link (BOTW)', 'Little Mac', 'Lucario', 'Lucas', 'Lucina', 'Luigi', 'Mario (Gold)', 'Mario (Silver)', 'Mario', 'Marth', 'Mega Man', 'Meta Knight', 'Mewtwo', 'Mii Brawler', 'Mii Gunner', 'Mii Swordfighter', 'Ness', 'Olimar', 'Pac-Man', 'Palutena', 'Peach', 'Pichu', 'PIK-pikmin', 'Pikachu', 'Pit', 'Pokemon Trainer', 'Richter', 'Ridley', 'ROB', 'Robin (Male)', 'Rosalina', 'Roy', 'Ryu', 'Samus', 'Sheik', 'Shulk', 'Simon', 'SM-koopa', 'Snake', 'Sonic', 'splat-boy-2', 'splat-boy-violet', 'splat-boy', 'splat-girl-2', 'splat-girl-green', 'splat-girl', 'splat-green-ENG', 'splat-pink-ENG', 'splat-squid-2', 'splat-squid-oran', 'splat-squid', 'Squirtle', 'Toad', 'Toon Link', 'Villager', 'Waluigi', 'Wario', 'Wii Fit Trainer', 'Wolf', 'Yoshi', 'Young Link', 'YWW-blu', 'YWW-green', 'YWW-pink', 'YWW-poochy', 'Z-botw-daruk', 'Z-botw-mipha', 'Z-botw-revali', 'Z-botw-urbosa', 'Zelda-SSBU', 'Zelda', 'Zero Suit Samus']
 var char_options = []
 for (let c of characters) {
     char_options.push(e('option', {value: c}, c));
@@ -30,7 +30,7 @@ function make_rows(items) {
 class Amiibo extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { character: "Bayonetta" };
+        this.state = { character: characters[0] };
         this.handleChange = this.handleChange.bind(this);
     }
 
