@@ -62,7 +62,7 @@ class ShelfBase extends React.Component {
 
     render() {
         var styling = {height: "30px", backgroundColor: this.state.color};
-        var row_props = {style: styling, colSpan: 4, key: "base-td"};
+        var row_props = {style: styling, colSpan: 100, key: "base-td"};
         var row = e('td', row_props);
         var input = td(e('input', {type: "text", value: this.state.color, onChange: this.handleChange, key: "color-picker"}), {key: "colortd"});
         return [row, input];
@@ -72,9 +72,23 @@ class ShelfBase extends React.Component {
 class Shelf extends React.Component {
     constructor(props) {
         super(props);
-        var amiibo = [0,1,2,3].map((n) => e(Amiibo, {key: "amiibo-"+n}));
-        this.state = {amiibo: amiibo,
-                        base: e(ShelfBase, {key: "shelfbase"})};
+        var amiibo = [0,1,2,3].map((n) => e(Amiibo, {key: n}));
+        this.state = {amiibo: amiibo, base: e(ShelfBase, {key: "shelfbase"})};
+
+        this.addAmiibo = this.addAmiibo.bind(this);
+        this.removeAmiibo = this.removeAmiibo.bind(this);
+    }
+
+    addAmiibo() {
+        var am = this.state.amiibo;
+        am.push(e(Amiibo, {key: am.length}));
+        this.setState({amiibo: am});
+    }
+
+    removeAmiibo() {
+        var am = this.state.amiibo;
+        am.pop();
+        this.setState({amiibo: am});
     }
 
     render() {
@@ -82,6 +96,9 @@ class Shelf extends React.Component {
         for (var i = 0; i < this.state.amiibo.length; i++) {
             am.push(td(this.state.amiibo[i], {key: i}));
         }
+        var addButton = e('button', {onClick: this.addAmiibo, key: "add"}, "+");
+        var removeButton = e('button', {onClick: this.removeAmiibo, key: "rem"}, "-");
+        am.push(td([removeButton, addButton], {key: "buttons"}));
         return table([tr(am, {key: "amiibo"}), tr(this.state.base, {key: "base"})], {key: "tb"}, {key: "tbod"});
     }
 }
