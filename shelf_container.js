@@ -63,7 +63,7 @@ class ShelfBase extends React.Component {
         var styling = {height: "30px", backgroundColor: this.state.color};
         var row_props = {style: styling, colSpan: this.props.len, key: "base-td"};
         var row = e('td', row_props);
-        var input = td(e('input', {type: "text", value: this.state.color, onChange: this.handleChange, key: "color-picker"}), {key: "colortd"});
+        var input = td(e('input', {type: "color", value: this.state.color, onInput: this.handleChange, onChange: this.handleChange, key: "color-picker"}), {key: "colortd"});
         return [row, input];
     }
 }
@@ -131,7 +131,7 @@ class ShelfContainer extends React.Component {
         }
         var addButton = e('button', {onClick: this.addShelf, key: "add"}, "+");
         var removeButton = e('button', {onClick: this.removeShelf, key: "rem"}, "-");
-        sh.push(td([removeButton, addButton], {key: "buttons"}));
+        sh.push(tr(td([removeButton, addButton], {key: "tdbuttons"}), {key: "trbuttons"}));
         return table(sh, {key: "table"}, {key: "tbody"});
     }
 }
