@@ -107,6 +107,21 @@ class ShelfContainer extends React.Component {
         super(props);
         var shelves = [0,1,2,3].map((n) => e(Shelf, {key: n}));
         this.state = {shelves: shelves};
+
+        this.addShelf = this.addShelf.bind(this);
+        this.removeShelf = this.removeShelf.bind(this);
+    }
+
+    addShelf() {
+        var am = this.state.shelves;
+        am.push(e(Shelf, {key: am.length}));
+        this.setState({shelves: am});
+    }
+
+    removeShelf() {
+        var am = this.state.shelves;
+        am.pop();
+        this.setState({shelves: am});
     }
 
     render() {
@@ -114,6 +129,9 @@ class ShelfContainer extends React.Component {
         for (var i = 0; i < this.state.shelves.length; i++) {
             sh.push(tr(td(this.state.shelves[i], {key: "td"+i}), {key: "tr"+i}));
         }
+        var addButton = e('button', {onClick: this.addShelf, key: "add"}, "+");
+        var removeButton = e('button', {onClick: this.removeShelf, key: "rem"}, "-");
+        sh.push(td([removeButton, addButton], {key: "buttons"}));
         return table(sh, {key: "table"}, {key: "tbody"});
     }
 }
